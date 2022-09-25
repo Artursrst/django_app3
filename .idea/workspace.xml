@@ -4,32 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0b32dfb-2077-4f15-89eb-46c6e747164e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/simple_http_server.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/db.sqlite3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/manage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/tasks/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/tasks/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/tasks/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/tasks/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/tasks/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/tasks/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/tasks/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/tasks/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/todo/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/todo/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/todo/urls.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_IntroductionToWebFrameworks/todo/todo/wsgi.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/02_IntroductionToDjango/.gitkeep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks/views.py" beforeDir="false" />
+    <list default="true" id="e0b32dfb-2077-4f15-89eb-46c6e747164e" name="Changes" comment="Task completed">
+      <change beforePath="$PROJECT_DIR$/.idea/python_django3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/python_django3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/02_IntroductionToDjango/board/advertisement/templates/advertisement/advertisement_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/02_IntroductionToDjango/board/advertisement/templates/advertisement/advertisement_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CopingWithAnxiety.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQL.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/python разработчик.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web.bmp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Русский язык.bmp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,14 +43,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/artur/PycharmProjects/Skillbox/python_django2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/artur/PycharmProjects/Skillbox/python_django2&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -77,6 +60,21 @@
       <option name="presentableId" value="Default" />
       <updated>1664005365430</updated>
     </task>
+    <task id="LOCAL-00001" summary="Task completed">
+      <created>1664052107941</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1664052107941</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Task completed">
+      <created>1664052138247</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1664052138247</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,5 +87,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Task completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task completed" />
   </component>
 </project>
