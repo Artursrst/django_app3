@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+{% for advertisement in advertisements %}
+
+<a href="/advertisements/{{ advertisement.id }}">{{ advertisement.title }}</a>
+advertisement.title
+advertisement.price
+advertisement.heading.name
+
+{% endfor %}
+
+
+</body>
+
+</html>
