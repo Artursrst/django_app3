@@ -10,5 +10,13 @@ class AdvertisementsListView(generic.ListView):
 
 class AdvertisementsDetailView(generic.DetailView):
     model = Advertisement
+
     template_name = 'advertisements/advertisements_detail.html'
+
+    def render_to_response(self, *args, **kwargs):
+        self.object.views_count += 1
+        self.object.save()
+        return super().render_to_response(*args, **kwargs)
+
+
 

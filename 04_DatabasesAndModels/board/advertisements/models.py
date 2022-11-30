@@ -31,14 +31,14 @@ from django.db import models
 
 
 class Advertisement(models.Model):
-    title = models.CharField(max_length=1000, db_index=True)
-    description = models.CharField(max_length=10000)
+    title = models.CharField(verbose_name='заголовок', max_length=1000, db_index=True)
+    description = models.CharField(verbose_name='описание', max_length=10000)
     created_at = models.DateTimeField(auto_now_add=True)
-    ended_at = models.DateTimeField()
+    ended_at = models.DateTimeField(verbose_name='дата окончания объявления', default=None)
     price = models.FloatField(verbose_name='цена', default=0)
     views_count = models.IntegerField(verbose_name='количетсов просмотров', default=0)
-    author = models.ForeignKey('AuthorInformation', default=None, null=True, on_delete=models.DO_NOTHING)
-    heading = models.ForeignKey('Headings', default=None, null=True, on_delete=models.DO_NOTHING)
+    author = models.ForeignKey('AuthorInformation', verbose_name='автор объявления', default=None, null=True, on_delete=models.DO_NOTHING)
+    heading = models.ForeignKey('Headings', verbose_name='рубрика',  default=None, null=True, on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return self.title
@@ -47,9 +47,15 @@ class Advertisement(models.Model):
         db_table = 'advertisements'
 
 class AuthorInformation(models.Model):
-    name = models.CharField(max_length=1000, db_index=True)
+    name = models.CharField(verbose_name='имя', max_length=1000, db_index=True)
     email = models.CharField(max_length=1000)
-    phone_number = models.CharField(max_length=1000)
+    phone_number = models.CharField(verbose_name='номер телефона', max_length=1000)
+
+    def __str__(self):
+        return self.name
 
 class Headings(models.Model):
-    title = models.CharField(max_length=1000, db_index=True)
+    title = models.CharField(verbose_name='название рубрики', max_length=1000, db_index=True)
+
+    def __str__(self):
+        return self.title

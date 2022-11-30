@@ -3,14 +3,17 @@
     <meta charset="UTF-8">
 
 <body>
-object.title
-object.price
-object.description
-object.heading.name
-object.author.name
-object.author.email
-object.author.phone_number
-object.views_count
+<p>Название объявления: {{object.title}}</p>
+<p>Стоимость: {{object.price}} рублей</p>
+<p>Описание: {{object.description}}</p>
+<p>Рубрика: {{object.heading.title}}</p>
+<p>Автор: {{object.author.name}}</p>
+<br>
+<p>Контакты автора:</p>
+<p>Емейл: {{object.author.email}}</p>
+<p>Номер телефона: {{object.author.phone_number}}</p>
+<br>
+<p>Количество просмотров объявления: {{object.views_count}}</p>
 </body>
 
 </html>
