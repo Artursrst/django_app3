@@ -1,0 +1,26 @@
+{% extends 'app_news/base.html' %}
+
+{% block title %}
+Orders list
+{% endblock %}
+
+{% block body %}
+  <h1>
+    Orders:
+  </h1>
+<div>
+  {% if not orders %}
+  <h3>No orders yet</h3>
+  {% else %}
+  <ul>
+      {% for order in orders %}
+      <li>{{ order.delivery_address }}</li>
+      <li>{{ order.promocode }}</li>
+      <li>{{ order.products }}</li>
+      <br/>
+      {% endfor %}
+  </ul>
+  {% endif %}
+
+</div>
+{% endblock %}

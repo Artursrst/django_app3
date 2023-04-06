@@ -1,0 +1,21 @@
+{% extends 'app_news/base.html' %}
+
+{% block title %}
+Create product
+{% endblock %}
+
+{% block body %}
+<h1>
+    User form
+</h1>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">
+            Submit
+        </button>
+    </form>
+</div>
+
+{% endblock %}
