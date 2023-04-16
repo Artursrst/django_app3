@@ -19,4 +19,4 @@ class Order(models.Model):
     products = models.ManyToManyField(Product, related_name='orders')
 
     def __str__(self) -> str:
-        return f"Order(pk={self.pk}, name={self.name!r})"
+        return f"Order(pk={self.pk})"
