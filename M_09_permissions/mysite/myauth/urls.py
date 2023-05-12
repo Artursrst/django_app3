@@ -18,5 +18,5 @@ urlpatterns = [
          ),
     path("logout/", MyLogoutView.as_view(), name="logout"),
     path("about-me/", AboutMeView.as_view(), name="about-me"),
-    path("register/", RegisterView.as_view(), name="about-me"),
+    path("register/", RegisterView.as_view(), name="register"),
 ]
