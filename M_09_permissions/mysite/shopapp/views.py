@@ -28,10 +28,11 @@ class ProductsListView(ListView):
     queryset = Product.objects.filter(archived=False)
 
 
-class ProductCreateView(UserPassesTestMixin, CreateView):
+class ProductCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = "shopapp.add_product"
     def form_valid(self, form):
         response = super().form_valid(form)
-        form.instance.created_by = self.object
+        form.instance.created_by = self.request.user
         self.object.save()
         return response
     def test_func(self):
