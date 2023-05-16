@@ -44,7 +44,8 @@ class ProductCreateView(PermissionRequiredMixin, CreateView):
 
 class ProductUpdateView(UserPassesTestMixin, UpdateView):
     def test_func(self):
-        return (self.request.user.has_perms('shopapp.change_product')) or (self.request.user == Product.objects.get(pk=self.object.pk).created_by)
+        return (self.request.user.has_perms('shopapp.change_product')) or (self.object.created_by == self.request.user)
+
     model = Product
     fields = "name", "price", "description", "discount", "created_by"
     template_name_suffix = "_update_form"
