@@ -42,7 +42,7 @@ class ProductCreateView(PermissionRequiredMixin, CreateView):
     success_url = reverse_lazy("shopapp:products_list")
 
 
-class ProductUpdateView(UserPassesTestMixin, UpdateView):
+class ProductUpdateView(UpdateView, UserPassesTestMixin):
     def test_func(self):
         return (self.request.user.has_perms('shopapp.change_product')) or (self.object.created_by == self.request.user)
 
