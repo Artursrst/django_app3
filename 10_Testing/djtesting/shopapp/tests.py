@@ -27,9 +27,9 @@ class OrderDetailViewTestCase(TestCase):
             description = "Good",
             price = "3337",
             discount = "10",
-            created_by = self.usertest,
             archived = False
         )
+        self.producttest.created_by.add(self.usertest)
         self.ordertest = Order.objects.create(
             delivery_address="Ul. Pushkina 99",
             promocode = 'tuctuctuc',
