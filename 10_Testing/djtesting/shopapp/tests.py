@@ -27,15 +27,15 @@ class OrderDetailViewTestCase(TestCase):
             description = "Good",
             price = "3337",
             discount = "10",
-            archived = False
+            archived = False,
+            created_by = self.usertest
         )
-        self.producttest.created_by.add(self.usertest)
         self.ordertest = Order.objects.create(
             delivery_address="Ul. Pushkina 99",
             promocode = 'tuctuctuc',
             user = self.usertest,
-            products = self.producttest,
         )
+        self.ordertest.products.add(self.producttest)
     @classmethod
     def tearDownClass(cls):
         cls.usertest.delete()
@@ -46,12 +46,13 @@ class OrderDetailViewTestCase(TestCase):
 
     def test_order_detail(self):
         response = self.client.get(
-            reverse("shopapp:order_details", kwargs={"pk", self.ordertest.pk})
+            reverse("shopapp:order_details", kwargs={"pk": self.ordertest.pk})
         )
         orders = Order.objects.all()
-        context_ = response.context["object"]
+        context_ = [response.context["object"]]
         for p, p_ in zip(orders, context_):
-            self.assertEqual(p.pk, p_.pk)
+            self.assertEqual(str(p.pk) + str(p.delivery_address )+ str(p.promocode),
+                             str(p_.pk) + str(p_.delivery_address) + str(p_.promocode))
 
 
 class ProductsExportViewTestCase(TestCase):
