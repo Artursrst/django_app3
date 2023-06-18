@@ -1,1 +1,40 @@
-[]
+[{"model": "shopapp.product", "pk": 1, "fields":
+{"name": "Laptop",
+  "description": "good",
+  "price": "777.00",
+  "discount": 3,
+  "created_by": null,
+  "created_at": "2023-06-18T07:15:30.704Z",
+  "archived": false}},
+  {"model": "shopapp.product", "pk": 2, "fields":
+  {"name": "Product1",
+    "description": "norm",
+    "price": "3335.00",
+    "discount": 2,
+    "created_by": null,
+    "created_at": "2023-06-18T07:16:07.908Z",
+    "archived": false}},
+  {"model": "shopapp.product", "pk": 3, "fields":
+  {"name": "Product2",
+    "description": "norm",
+    "price": "22222.00",
+    "discount": 37,
+    "created_by": null,
+    "created_at": "2023-06-18T07:16:40.931Z",
+    "archived": false}},
+  {"model": "shopapp.product", "pk": 4, "fields":
+  {"name": "Product3",
+    "description": "norm",
+    "price": "1113.00",
+    "discount": 12,
+    "created_by": null,
+    "created_at": "2023-06-18T07:17:03.781Z",
+    "archived": false}},
+  {"model": "shopapp.product", "pk": 5, "fields":
+  {"name": "Product4",
+    "description": "norm",
+    "price": "88888.00",
+    "discount": 3,
+    "created_by": null,
+    "created_at": "2023-06-18T07:17:29.404Z",
+    "archived": false}}]
