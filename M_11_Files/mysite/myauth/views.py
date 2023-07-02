@@ -5,9 +5,16 @@ from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, UpdateView, ListView
 
 from .models import Profile
+
+"""
+ Дайте возможность администраторам менять аватарки пользователей (проверка по is_staff или принадлежности профиля пользователю). 
+ Эта проверка должна быть:
+во view-функции (чтобы не пускать пользователя на страницу и не пропускать запрос на обновление);
+в шаблоне (чтобы даже не отображать ссылку на обновление профиля пользователя).
+"""
 
 
 class AboutMeView(TemplateView):
@@ -35,6 +42,22 @@ class RegisterView(CreateView):
 
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy("myauth:login")
+
+
+class UsersListView(ListView):
+    template_name = "myauth/users-list.html"
+    model = Profile
+    context_object_name = "users"
+
+
+class AvatarUpdateView(UpdateView):
+    model = Profile
+    fields = "avatar"
+    template_name_suffix = "_update_form"
+
+    def get_success_url(self):
+        return reverse_lazy("myauth:about-me")
+
 
 
 @user_passes_test(lambda u: u.is_superuser)

@@ -10,6 +10,8 @@ from .views import (
     MyLogoutView,
     AboutMeView,
     RegisterView,
+    AvatarUpdateView,
+    UsersListView,
     FooBarView,
 )
 
@@ -29,6 +31,8 @@ urlpatterns = [
     path("logout/", MyLogoutView.as_view(), name="logout"),
     path("about-me/", AboutMeView.as_view(), name="about-me"),
     path("register/", RegisterView.as_view(), name="register"),
+    path("users/", UsersListView.as_view(), name="users_list"),
+    path("users/<int:pk>/update/", AvatarUpdateView.as_view(), name="user_update"),
 
     path("cookie/get/", get_cookie_view, name="cookie-get"),
     path("cookie/set/", set_cookie_view, name="cookie-set"),
