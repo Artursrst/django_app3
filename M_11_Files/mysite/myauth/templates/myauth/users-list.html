@@ -10,12 +10,12 @@
     <div>
     {% for user in users %}
       <div>
-        <p><a href="{% url 'myauth:about-me' %}"
+        <p><a href="{% url 'myauth:users_details' pk=user.pk %}"
         >Username: {{ user.user }}</a></p>
         <p>Bio: {{ user.bio }}</p>
         <p>Avatar:</p>
         {% if user.avatar %}
-        <img src="{{ user.preview.url }}" alt="{{ user.previw.name }}">
+        <img src="{{ user.avatar.url }}" alt="{{ user.avatar.name }}">
         {% else %}
         No avatar uploaded yet
         {% endif %}

@@ -1,5 +1,7 @@
 {% extends 'myauth/base.html' %}
 
+{% if perms.myauth.change_user or user.is_staff or (user.profile.pk == object.user.profile.pk) %}
+
 {% block title %}
   Update avatar
 {% endblock %}
@@ -18,3 +20,8 @@
     >Back to about {{ object.user }}</a>
   </div>
 {% endblock %}
+
+{% else %}
+Insufficient rights to perform this action
+
+{% endif %}

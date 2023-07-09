@@ -15,13 +15,13 @@
     <p>Email: {{ user.email }}</p>
     <p>Bio: {{ user.profile.bio }}</p>
     <p>Avatar:</p>
-        {% if user.avatar %}
-        <img src="{{ user.preview.url }}" alt="{{ user.previw.name }}">
+        {% if user.profile.avatar %}
+        <img src="{{ user.profile.avatar.url }}" alt="{{ user.profile.avatar.name }}">
         {% else %}
         No avatar uploaded yet
         {% endif %}
   <div>
-    <a href="{% url 'myauth:user_update' pk=user.pk %}">Update avatar</a>
+    <a href="{% url 'myauth:user_update' pk=user.profile.pk %}">Update avatar</a>
   </div>
   {% else %}
     <h2>User is anonymous</h2>

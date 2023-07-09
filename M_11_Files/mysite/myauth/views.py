@@ -3,9 +3,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LogoutView
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.mixins import PermissionRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import TemplateView, CreateView, UpdateView, ListView
+from django.views.generic import TemplateView, CreateView, UpdateView, ListView, DetailView
 
 from .models import Profile
 
@@ -49,10 +50,19 @@ class UsersListView(ListView):
     model = Profile
     context_object_name = "users"
 
-
-class AvatarUpdateView(UpdateView):
+class UsersDetailsView(DetailView):
+    template_name = "myauth/users-details.html"
     model = Profile
-    fields = "avatar"
+    context_object_name = "object"
+
+
+class AvatarUpdateView(UserPassesTestMixin, PermissionRequiredMixin, UpdateView):
+    def test_func(self):
+        return self.request.user.is_staff or (self.request.user.profile.pk == self.object.user.profile.pk)
+
+    permission_required = "myauth.change_user"
+    model = Profile
+    fields = "avatar",
     template_name_suffix = "_update_form"
 
     def get_success_url(self):
