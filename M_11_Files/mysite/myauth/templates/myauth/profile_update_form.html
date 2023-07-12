@@ -1,16 +1,19 @@
 {% extends 'myauth/base.html' %}
 
-{% if perms.myauth.change_user or user.is_staff or (user.profile.pk == object.user.profile.pk) %}
+
 
 {% block title %}
   Update avatar
 {% endblock %}
 
+
 {% block body %}
+{% if perms.myauth.change_user or user.is_staff or user.profile.pk == object.user.profile.pk %}
   <h1>Update avatar</h1>
   <div>
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
+
       {{ form.as_p }}
       <button type="submit">Update</button>
     </form>
@@ -19,9 +22,10 @@
     <a href="{% url 'myauth:about-me' %}"
     >Back to about {{ object.user }}</a>
   </div>
-{% endblock %}
+
 
 {% else %}
 Insufficient rights to perform this action
 
 {% endif %}
+{% endblock %}

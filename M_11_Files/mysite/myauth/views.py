@@ -56,11 +56,12 @@ class UsersDetailsView(DetailView):
     context_object_name = "object"
 
 
-class AvatarUpdateView(UserPassesTestMixin, PermissionRequiredMixin, UpdateView):
+class AvatarUpdateView(UserPassesTestMixin, UpdateView):
     def test_func(self):
-        return self.request.user.is_staff or (self.request.user.profile.pk == self.object.user.profile.pk)
+        return (self.request.user.is_staff or
+                (self.request.user.profile.pk == self.get_object().pk) or
+                self.request.user.has_perm("myauth.change_user"))
 
-    permission_required = "myauth.change_user"
     model = Profile
     fields = "avatar",
     template_name_suffix = "_update_form"
