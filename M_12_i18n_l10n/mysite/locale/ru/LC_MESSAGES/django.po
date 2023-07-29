@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-29 14:27+0000\n"
+"POT-Creation-Date: 2023-07-29 14:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,20 +60,11 @@ msgstr "Zakazi"
 msgid "Product #"
 msgstr "Tovar #"
 
-#: shopapp/templates/shopapp/products-details.html:11
-#, fuzzy, python-format
-#| msgid ""
-#| "\n"
-#| "  <h1>Product <strong>%(product.name)s</strong></h1>\n"
-#| "  <div>\n"
-#| "    <div>Description: <em>%(product.description)s</em></div>\n"
-#| "    <div>Price: %(product.price)s</div>\n"
-#| "    <div>Discount: %(product.discount)s</div>\n"
-#| "    <div>Archived: %(product.archived)s</div>\n"
-#| "  "
+#: shopapp/templates/shopapp/products-details.html:10
+#, python-format
 msgid ""
 "\n"
-"  <h1>Product <strong>%(product_name)s</strong></h1>\n"
+"  <h1>Product <strong>%(product.name)s</strong></h1>\n"
 "  <div>\n"
 "    <div>Description: <em>%(product.description)s</em></div>\n"
 "    <div>Price: %(product.price)s</div>\n"
@@ -82,31 +73,31 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"  <h1>Tovar <strong>%(product_name)s</strong></h1>\n"
+"  <h1>Tovar <strong>%(product.name)s</strong></h1>\n"
 "  <div>\n"
-"    <div>Opisanie: <em>%(product.description)s </em></div>\n"
-"    <div>Cena: %(product.price)s </div>\n"
-"    <div>Skidka: %(product.discount)s </div>\n"
-"    <div>V arhive: %(product.archived)s </div>\n"
+"    <div>Opisanie: <em>%(product.description)s</em></div>\n"
+"    <div>Cena: %(product.price)s</div>\n"
+"    <div>Skidka: %(product.discount)s</div>\n"
+"    <div>V arhive: %(product.archived)s</div>\n"
 "  "
 
-#: shopapp/templates/shopapp/products-details.html:23
+#: shopapp/templates/shopapp/products-details.html:22
 msgid "Images"
 msgstr "Izobrajenie"
 
-#: shopapp/templates/shopapp/products-details.html:31
+#: shopapp/templates/shopapp/products-details.html:30
 msgid "No images uploaded yet"
 msgstr "Net izobrajeniya"
 
-#: shopapp/templates/shopapp/products-details.html:38
+#: shopapp/templates/shopapp/products-details.html:37
 msgid "Update product"
 msgstr "Obnovit product"
 
-#: shopapp/templates/shopapp/products-details.html:41
+#: shopapp/templates/shopapp/products-details.html:40
 msgid "Archive product"
 msgstr "Otpravit v arhiv"
 
-#: shopapp/templates/shopapp/products-details.html:44
+#: shopapp/templates/shopapp/products-details.html:43
 msgid "Back to products list"
 msgstr "Vernutsya k spisku tovarov"
 
