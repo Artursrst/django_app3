@@ -1,0 +1,1 @@
+(0.001) SELECT CAST(AVG("shopapp_product"."price") AS NUMERIC) AS "price__avg", CAST(MAX("shopapp_product"."price") AS NUMERIC) AS "price__max", CAST(MIN("shopapp_product"."price") AS NUMERIC) AS "price__min", COUNT("shopapp_product"."id") AS "id__count" FROM "shopapp_product"; args=(); alias=default
