@@ -14,6 +14,12 @@ from pathlib import Path
 
 import debug_toolbar.middleware
 from django.urls import reverse_lazy
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+sentry_sdk.init(
+    dsn="https://57d1065740e4bee6f44a208b2906877f@o4505756514254848.ingest.sentry.io/4505756528672768",
+    traces_sample_rate=1.0,
+)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
