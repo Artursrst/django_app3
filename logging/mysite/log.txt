@@ -8,3 +8,9 @@
 2023-08-21 20:26:38,736 [INFO] django.utils.autoreload Watching for file changes with StatReloader
 2023-08-22 09:15:44,019 [INFO] django.utils.autoreload Watching for file changes with StatReloader
 2023-08-22 09:16:06,941 [WARNING] django.request Not Found: /
+2023-08-23 09:42:04,496 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2023-08-23 09:43:31,660 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2023-08-23 09:43:34,682 [WARNING] django.request Not Found: /
+2023-08-23 09:43:35,003 [WARNING] django.request Not Found: /favicon.ico
+2023-08-23 09:44:25,247 [INFO] django.utils.autoreload Watching for file changes with StatReloader
+2023-08-23 09:44:27,395 [INFO] shopapp.views Rendering shop index
