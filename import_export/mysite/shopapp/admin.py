@@ -1,12 +1,10 @@
-from io import TextIOWrapper
-from csv import DictReader
-
 from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import path
 
+from .common import save_csv_products
 from .models import Product, Order, ProductImage
 from .admin_mixins import ExportAsCSVMixin
 from .forms import CSVImportForm
@@ -85,17 +83,10 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCSVMixin):
             }
             return render(request, "admin/csv_form.html", context, status=400)
 
-        csv_file = TextIOWrapper(
-            form.files["csv_file"].file,
+        save_csv_products(
+            file = form.files["csv_file"].file,
             encoding=request.encoding,
         )
-        reader = DictReader(csv_file)
-
-        products = [
-            Product(**row)
-            for row in reader
-        ]
-        Product.objects.bulk_create(products)
         self.message_user(request, "Data from CSV was imported")
         return redirect("..")
 
