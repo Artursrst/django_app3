@@ -1,7 +1,10 @@
+from io import TextIOWrapper
+from csv import DictReader
+
 from django.contrib import admin
 from django.db.models import QuerySet
 from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import path
 
 from .models import Product, Order, ProductImage
@@ -69,11 +72,32 @@ class ProductAdmin(admin.ModelAdmin, ExportAsCSVMixin):
         return obj.description[:48] + "..."
 
     def import_csv(self, request: HttpRequest) -> HttpResponse:
-        form = CSVImportForm()
-        context = {
-            "form": form,
-        }
-        return render(request, "admin/csv_form.html", context)
+        if request.method == "GET":
+            form = CSVImportForm()
+            context = {
+                "form": form,
+            }
+            return render(request, "admin/csv_form.html", context)
+        form = CSVImportForm(request.POST, request.FILES)
+        if not form.is_valid():
+            context = {
+                "form": form,
+            }
+            return render(request, "admin/csv_form.html", context, status=400)
+
+        csv_file = TextIOWrapper(
+            form.files["csv_file"].file,
+            encoding=request.encoding,
+        )
+        reader = DictReader(csv_file)
+
+        products = [
+            Product(**row)
+            for row in reader
+        ]
+        Product.objects.bulk_create(products)
+        self.message_user(request, "Data from CSV was imported")
+        return redirect("..")
 
     def get_urls(self):
         urls = super().get_urls()
