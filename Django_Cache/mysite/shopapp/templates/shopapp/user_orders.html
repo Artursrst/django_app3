@@ -1,0 +1,20 @@
+{% extends 'shopapp/base.html' %}
+{% load cache %}
+
+{% block title %}
+  User #{{ user.user_id }}
+{% endblock %}
+
+{% block body %}
+  <h1>User: <strong>{{ user.username }}</strong></h1>
+{% cache 300 owner user.username %}
+    {% if user.orders %}
+      Пользователь выполнил следующие заказы:
+      {% for order in user.orders %}
+      {{ order.delivery_address }}
+    {% else %}
+      У пользователя ещё нет заказов
+    {% endif %}
+{% endcache %}
+
+{% endblock %}
