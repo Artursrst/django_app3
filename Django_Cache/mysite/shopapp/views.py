@@ -206,7 +206,7 @@ class UserOrdersListView(ListView):
     context_object_name = "user"
 
     def get_queryset(self):
-        if not self.is_authenticated:
+        if not self.user.is_authenticated:
             if not Profile.user.filter(user_id=self.user_id):
                 return render(self.request, 'shopapp/user_orders.html', status=404)
 
