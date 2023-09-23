@@ -12,6 +12,7 @@
       Пользователь выполнил следующие заказы:
       {% for order in user.orders %}
       {{ order.delivery_address }}
+        {% endfor %}
     {% else %}
       У пользователя ещё нет заказов
     {% endif %}

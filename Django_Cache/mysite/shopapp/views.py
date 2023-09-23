@@ -206,16 +206,16 @@ class UserOrdersListView(ListView):
     context_object_name = "user"
 
     def get_queryset(self):
-        if not self.user.is_authenticated:
-            if not Profile.user.filter(user_id=self.user_id):
+        if not self.request.user.is_authenticated:
+            if not Profile.objects.filter(user_id=self.request.user.pk):
                 return render(self.request, 'shopapp/user_orders.html', status=404)
 
-        return Profile.user.filter(user_id=self.user_id)
+        return Profile.objects.filter(user_id=self.request.user.pk)
 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        selected_user = Profile.objects.filter(user_id=self.user_id)
+        selected_user = Profile.objects.filter(user_id=self.request.user.pk)
         context["orders_list"] = Order.objects.filter(user=selected_user)
 
         return context
@@ -223,12 +223,12 @@ class UserOrdersListView(ListView):
 
 class OrdersDataExportView(View):
     def get(self, request: HttpRequest) -> JsonResponse:
-        if not Profile.user.filter(user_id=self.user_id):
+        if not Profile.objects.filter(user_id=self.request.user.pk):
             return render(self.request, '', status=404)
-        cache_key = "orders_data_export" + str(self.user_id)
+        cache_key = "orders_data_export" + str(self.request.user.pk)
         orders_data = cache.get(cache_key)
         if orders_data is None:
-            selected_user = Profile.objects.filter(user_id=self.user_id)
+            selected_user = Profile.objects.filter(user_id=self.request.user.pk)
             orders = Order.objects.filter(user=selected_user).all()
             orders_data = [
                 {

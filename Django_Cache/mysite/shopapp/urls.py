@@ -35,5 +35,5 @@ urlpatterns = [
     path("orders/", OrdersListView.as_view(), name="orders_list"),
     path("orders/export/", OrdersDataExportView.as_view(), name="orders-export"),
     path("orders/<int:pk>/", OrderDetailView.as_view(), name="order_details"),
-    path("users/<int:user_id>/orders/", UserOrdersListView.as_view(), name="user_orders"),
+    path("users/<int:pk>/orders/", UserOrdersListView.as_view(), name="user_orders"),
 ]
