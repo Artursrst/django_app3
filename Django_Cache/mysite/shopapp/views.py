@@ -2,6 +2,7 @@ from csv import DictWriter
 from timeit import default_timer
 
 from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, reverse
 from django.core.cache import cache
@@ -202,7 +203,7 @@ class ProductsDataExportView(View):
 
 
 class UserOrdersListView(ListView):
-    template_name = "shopapp/products-list.html"
+    template_name = "shopapp/user_orders.html"
     context_object_name = "user"
 
     def get_queryset(self):
@@ -215,8 +216,7 @@ class UserOrdersListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        selected_user = Profile.objects.filter(user_id=self.request.user.pk)
-        context["orders_list"] = Order.objects.filter(user=selected_user)
+        context["orders_list"] = Order.objects.filter(user_id=self.request.user.pk)
 
         return context
 
