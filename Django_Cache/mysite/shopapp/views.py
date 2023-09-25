@@ -202,22 +202,19 @@ class ProductsDataExportView(View):
         return JsonResponse({"products": products_data})
 
 
-class UserOrdersListView(ListView):
+class UserOrdersDetailView(LoginRequiredMixin, DetailView):
     template_name = "shopapp/user_orders.html"
-    context_object_name = "user"
+    context_object_name = "obj"
+    queryset = User.objects.all()
 
     def get_queryset(self):
-        if not self.request.user.is_authenticated:
-            if not Profile.objects.filter(user_id=self.request.user.pk):
-                return render(self.request, 'shopapp/user_orders.html', status=404)
-
-        return Profile.objects.filter(user_id=self.request.user.pk)
-
+        queryset = super().get_queryset()
+        queryset = queryset.filter(pk=self.request.user.pk)
+        return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["orders_list"] = Order.objects.filter(user_id=self.request.user.pk)
-
         return context
 
 

@@ -2,15 +2,15 @@
 {% load cache %}
 
 {% block title %}
-  User #{{ user.user_id }}
+  User #{{ user.pk }}
 {% endblock %}
 
 {% block body %}
   <h1>User: <strong>{{ user.username }}</strong></h1>
 {% cache 300 owner user.username %}
-    {% if user.orders %}
+    {% if orders_list %}
       Пользователь выполнил следующие заказы:
-      {% for order in user.orders %}
+      {% for order in orders_list %}
       {{ order.delivery_address }}
         {% endfor %}
     {% else %}
