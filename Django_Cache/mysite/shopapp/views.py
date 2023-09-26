@@ -202,20 +202,19 @@ class ProductsDataExportView(View):
         return JsonResponse({"products": products_data})
 
 
-class UserOrdersDetailView(LoginRequiredMixin, DetailView):
+class UserOrdersListView(LoginRequiredMixin, ListView):
     template_name = "shopapp/user_orders.html"
-    context_object_name = "obj"
-    queryset = User.objects.all()
+    context_object_name = "orders"
+    queryset = Order.objects.all()
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        queryset = queryset.filter(pk=self.request.user.pk)
+        queryset = super().get_queryset().filter(user_id=self.kwargs['pk'])
         return queryset
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["orders_list"] = Order.objects.filter(user_id=self.request.user.pk)
-        return context
+    #def get_context_data(self, **kwargs):
+    #    context = super().get_context_data(**kwargs)
+    #    context["orders_list"] = Order.objects.filter(user_id=self.request.user.pk)
+    #    return context
 
 
 class OrdersDataExportView(View):

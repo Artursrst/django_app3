@@ -2,19 +2,22 @@
 {% load cache %}
 
 {% block title %}
-  User #{{ user.pk }}
+  User #{{ orders.first.user.pk }}
 {% endblock %}
 
 {% block body %}
-  <h1>User: <strong>{{ user.username }}</strong></h1>
+    {% if orders %}
+  <h1>User: <strong>{{ orders.first.user.username }}</strong></h1>
+    {% else %}
+    У пользователя ещё нет заказов
+
+    {% endif %}
 {% cache 300 owner user.username %}
-    {% if orders_list %}
+    {% if orders %}
       Пользователь выполнил следующие заказы:
-      {% for order in orders_list %}
+      {% for order in orders %}
       {{ order.delivery_address }}
         {% endfor %}
-    {% else %}
-      У пользователя ещё нет заказов
     {% endif %}
 {% endcache %}
 
